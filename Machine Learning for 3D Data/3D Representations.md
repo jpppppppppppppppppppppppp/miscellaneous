@@ -99,23 +99,29 @@ Poisson Surface Reconstruction:
 We have the gradient of the implicit function, which is the same with the surface normal. We'll find the function $f$ with the gradient field $V=\nabla f$. 
 
 Finding a function $\hat{f}$ minimizing the mean squared error:
+
 $$
 \hat{f}=\arg\min_f\int_\Omega (\nabla f(x)-V(x))^2dx,
 $$
+
 which is a variational calculus.
 
 For example, in 1D-case, $\hat{f}=\arg\min_f\int_\Omega (f'(x)-V(x))^2dx$, we introduce Euler-Lagrange equation:
+
 $$
 \frac{\partial L}{\partial f}-\frac{d}{dx}\frac{\partial L}{\partial f'}=0.
 $$
+
 Here, $L=(f'(x)-V(x))^2$, so $f''(x)=V'(x)$.
 
 In a higher dimension, this becomes a Poisson's Equation: $\Delta f=\nabla\cdot V$.
 
 And, we can utilize the information that the given points' distance to the surface is zero.
+
 $$
 \hat{f}=\arg\min_f\int_\Omega (f'(x)-g''(x))^2dx+\sum_{x\in\chi} w(x)f^2(x)
 $$
+
 [[2021] Shape As Points: A Differentiable Poisson Solver](https://proceedings.neurips.cc/paper/2021/hash/6cd9313ed34ef58bad3fdd504355e72c-Abstract.html) A spectral method solving the Poisson Equation, which is highly optimized on GPUs, utilizing Forward Fourier Transform. 
 
 Neural Conversion, point -> implicit without normals information.
