@@ -39,13 +39,17 @@ Can generalize to Non-Euclidean Metric space, like using geodesic distance.
 [Dynamic Graph CNN for Learning on Point Clouds](https://dl.acm.org/doi/pdf/10.1145/3326362)
 
 A small PointNet in each layer of PointNet++ is:
+
 $$
 x_i'=\max_{j:(i,j)\in E}h(x_j)
 $$
+
 A generalization of PointNet is:
+
 $$
 x' = g\left(\bigoplus_{j:(i,j)\in E} f(x_i, x_j)\right)
 $$
+
 But, what's the choice of $\oplus,f$ and $g$ ?
 
 [[1803.10091\] Point Convolutional Neural Networks by Extension Operators](https://arxiv.org/abs/1803.10091) they choose $\oplus$ as a weighted sum operation with Gaussian kernel distance as the weight.
